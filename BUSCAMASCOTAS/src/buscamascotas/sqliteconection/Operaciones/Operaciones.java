@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package buscamascotas.sqliteconection.Operaciones;
 
 import java.sql.ResultSet;
@@ -22,7 +17,7 @@ public class Operaciones extends Conexion {
 	Object[] listaDNIArray;
 
 	public Operaciones() {
-		// initialise instance variables
+
 	}
 
 	public ArrayList<String> getAllListaDNI() {
@@ -60,16 +55,10 @@ public class Operaciones extends Conexion {
 			resultado = consulta.executeQuery("SELECT ANIMALID FROM ANIMALES");
 			tamanyo = resultado.getMetaData().getColumnCount();
 
-//			System.out
-//					.println("Valor de resultado --> " + resultado.toString());
-//			;
 			while (resultado.next()) {
 				for (int i = 1; i <= tamanyo; i++) {
 					calcular = (int) resultado.getObject(i);
-//					System.out.println("Valor de calcular --> " + calcular);
 				}
-
-//				System.out.println("Valor de calcular final --> " + calcular);
 			}
 			calcular++;
 		} catch (SQLException e) {
@@ -98,9 +87,6 @@ public class Operaciones extends Conexion {
 		try {
 			resultado = consulta.executeQuery(sql);
 		} catch (SQLException e) {
-//			System.out.println("Mensaje:" + e.getMessage());
-//			System.out.println("Estado:" + e.getSQLState());
-//			System.out.println("Codigo del error:" + e.getErrorCode());
 			JOptionPane.showMessageDialog(null, "" + e.getMessage());
 		}
 		return resultado;
@@ -143,13 +129,7 @@ public class Operaciones extends Conexion {
 
 					objetos[numeroColumna - 2] = propietario;
 					objetos[numeroColumna - 1] = dni;
-//					System.out
-//							.println("***************************************");
-//					System.out.println(getAllListaDNI().toString());
-//					System.out
-//							.println("***************************************");
-//					System.out.println("Valor de los objetos: "
-//							+ objetos.toString());
+
 					tableModel.addRow(objetos);
 				}
 			}
@@ -252,9 +232,6 @@ public class Operaciones extends Conexion {
 		try {
 			resultado = consulta.executeQuery(sql);
 		} catch (SQLException e) {
-//			System.out.println("Mensaje:" + e.getMessage());
-//			System.out.println("Estado:" + e.getSQLState());
-//			System.out.println("Codigo del error:" + e.getErrorCode());
 			JOptionPane.showMessageDialog(null, "" + e.getMessage());
 		} finally {
 			try {
@@ -271,45 +248,3 @@ public class Operaciones extends Conexion {
 		}
 	}
 }
-// public void guardarUsuario(Persona persona) {
-// insertar("insert into CLIENTES values(" + persona.getId()
-// + ",'" + persona.getPrimer_nombre()
-// + "','" + persona.getSegundo_nombre()
-// + "','" + persona.getPrimer_apellido()
-// + "','" + persona.getSegundo_apellido() + "')");
-// }
-//
-// public void totalPersonas(DefaultTableModel tableModel) {
-// ResultSet resultado = null;
-// tableModel.setRowCount(0);
-// tableModel.setColumnCount(0);
-// String sql = "select * from CLIENTES";
-// try {
-// resultado = consultar(sql);
-// if (resultado != null) {
-// int numeroColumna = resultado.getMetaData().getColumnCount();
-// for (int j = 1; j <= numeroColumna; j++) {
-// tableModel.addColumn(resultado.getMetaData().getColumnName(j));
-// }
-// while (resultado.next()) {
-// Object[] objetos = new Object[numeroColumna];
-// for (int i = 1; i <= numeroColumna; i++) {
-// objetos[i - 1] = resultado.getObject(i);
-// }
-// tableModel.addRow(objetos);
-// }
-// }
-// } catch (SQLException e) {
-// } finally {
-// try {
-// consulta.close();
-// conexion.close();
-// if (resultado != null) {
-// resultado.close();
-// }
-// } catch (Exception e) {
-// e.printStackTrace();
-// }
-// }
-// }
-
