@@ -78,7 +78,8 @@ public class Operaciones extends Conexion {
 	/**
 	 * Abrimos una consulta con la base de datos
 	 * 
-	 * @param Recibe una sentencia sql
+	 * @param Recibe
+	 *            una sentencia sql
 	 * @return devuelve el valor de la consulta
 	 */
 	public ResultSet consultar(String sql) {
@@ -95,8 +96,10 @@ public class Operaciones extends Conexion {
 	/**
 	 * Se realiza una consulta con los datos del animal.
 	 * 
-	 * @param Recibe una sentencia sql
-	 * @param Recibe un tableModel
+	 * @param Recibe
+	 *            una sentencia sql
+	 * @param Recibe
+	 *            un tableModel
 	 * @return Devolvemos un TableModel
 	 */
 	public DefaultTableModel consultaAnimal(String sql,
@@ -218,7 +221,7 @@ public class Operaciones extends Conexion {
 
 		return tableModel;
 	}
-	
+
 	public DefaultTableModel consultaSoloCliente(String sql,
 			DefaultTableModel tableModel) {
 		listaDNI = new ArrayList<String>();
@@ -236,19 +239,15 @@ public class Operaciones extends Conexion {
 					String dni = resultadoCliente.getString(3);
 					setListaDNI(dni);
 
-					
-							Object[] objetos = new Object[2];
-							
+					Object[] objetos = new Object[2];
 
-							objetos[0] = propietario;
-							objetos[1] = dni;
+					objetos[0] = propietario;
+					objetos[1] = dni;
 
-							tableModel.addRow(objetos);
-						}
-					}
-				
+					tableModel.addRow(objetos);
+				}
+			}
 
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -258,7 +257,7 @@ public class Operaciones extends Conexion {
 				if (resultadoCliente != null) {
 					resultadoCliente.close();
 				}
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -268,9 +267,11 @@ public class Operaciones extends Conexion {
 	}
 
 	/**
-	 * Se realiza una consulta normal, sin realizar ninguna operación en concreto.
+	 * Se realiza una consulta normal, sin realizar ninguna operación en
+	 * concreto.
 	 * 
-	 * @param Recibe una sentencia sql
+	 * @param Recibe
+	 *            una sentencia sql
 	 * @return Devuelve un ResultSet
 	 */
 	@SuppressWarnings("finally")

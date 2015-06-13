@@ -6,17 +6,16 @@
 
 package buscamascotas.IU;
 
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
 import javax.swing.GroupLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -28,6 +27,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Creates new form MenuPrincipal
 	 */
@@ -53,18 +53,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
 		setResizable(false);
 
 		insertarClienteButton.setText("INSERTAR CLIENTE");
-		insertarClienteButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				insertarButtonActionPerformed(evt);
-			}
-		});
+		insertarClienteButton
+				.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						insertarButtonActionPerformed(evt);
+					}
+				});
 
 		buscarAnimalButton.setText("BUSCAR ANIMAL");
-		buscarAnimalButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				buscarButtonAnimalActionPerformed(evt);
-			}
-		});
+		buscarAnimalButton
+				.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent evt) {
+						buscarButtonAnimalActionPerformed(evt);
+					}
+				});
 
 		salirButton.setText("SALIR");
 		salirButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +77,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
 		jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 36));
 		jLabel1.setText("BUSCAMASCOTAS");
-		
+
 		JButton buscarClienteButton = new JButton();
 		buscarClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,45 +88,67 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addGroup(layout.createParallelGroup(Alignment.LEADING)
-						.addGroup(layout.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(layout.createParallelGroup(Alignment.TRAILING)
-								.addGroup(layout.createSequentialGroup()
-									.addGap(0, 328, Short.MAX_VALUE)
-									.addComponent(salirButton))
-								.addGroup(layout.createSequentialGroup()
-									.addComponent(jLabel1)
-									.addGap(0, 0, Short.MAX_VALUE))))
-						.addGroup(layout.createSequentialGroup()
-							.addGap(50)
-							.addComponent(buscarAnimalButton)
-							.addGap(40)
-							.addComponent(buscarClienteButton)))
-					.addContainerGap())
-				.addGroup(layout.createSequentialGroup()
-					.addGap(124)
-					.addComponent(insertarClienteButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGap(158))
-		);
-		layout.setVerticalGroup(
-			layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(jLabel1)
-					.addGap(54)
-					.addComponent(insertarClienteButton)
-					.addGap(43)
-					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(buscarAnimalButton)
-						.addComponent(buscarClienteButton))
-					.addPreferredGap(ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-					.addComponent(salirButton)
-					.addContainerGap())
-		);
+		layout.setHorizontalGroup(layout
+				.createParallelGroup(Alignment.LEADING)
+				.addGroup(
+						layout.createSequentialGroup()
+								.addGroup(
+										layout.createParallelGroup(
+												Alignment.LEADING)
+												.addGroup(
+														layout.createSequentialGroup()
+																.addContainerGap()
+																.addGroup(
+																		layout.createParallelGroup(
+																				Alignment.TRAILING)
+																				.addGroup(
+																						layout.createSequentialGroup()
+																								.addGap(0,
+																										328,
+																										Short.MAX_VALUE)
+																								.addComponent(
+																										salirButton))
+																				.addGroup(
+																						layout.createSequentialGroup()
+																								.addComponent(
+																										jLabel1)
+																								.addGap(0,
+																										0,
+																										Short.MAX_VALUE))))
+												.addGroup(
+														layout.createSequentialGroup()
+																.addGap(50)
+																.addComponent(
+																		buscarAnimalButton)
+																.addGap(40)
+																.addComponent(
+																		buscarClienteButton)))
+								.addContainerGap())
+				.addGroup(
+						layout.createSequentialGroup()
+								.addGap(124)
+								.addComponent(insertarClienteButton,
+										GroupLayout.DEFAULT_SIZE,
+										GroupLayout.DEFAULT_SIZE,
+										Short.MAX_VALUE).addGap(158)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(
+						layout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(jLabel1)
+								.addGap(54)
+								.addComponent(insertarClienteButton)
+								.addGap(43)
+								.addGroup(
+										layout.createParallelGroup(
+												Alignment.BASELINE)
+												.addComponent(
+														buscarAnimalButton)
+												.addComponent(
+														buscarClienteButton))
+								.addPreferredGap(ComponentPlacement.RELATED,
+										69, Short.MAX_VALUE)
+								.addComponent(salirButton).addContainerGap()));
 		getContentPane().setLayout(layout);
 
 		pack();
@@ -146,25 +170,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
 	 * 
 	 * @param evt
 	 */
-	private void buscarButtonAnimalActionPerformed(java.awt.event.ActionEvent evt) {
+	private void buscarButtonAnimalActionPerformed(
+			java.awt.event.ActionEvent evt) {
 		BuscarAnimal.main();
 		this.setVisible(false);
 	}
-	
+
 	/**
 	 * Al pulsar en BUSCAR nos lleva a la ventana Buscar
 	 * 
 	 * @param evt
 	 */
-	private void buscarButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {
+	private void buscarButtonClienteActionPerformed(
+			java.awt.event.ActionEvent evt) {
 		BuscarCliente.main();
 		this.setVisible(false);
 	}
 
 	/**
-	 * Si se pulsa salir, salta un confirmdialog.
-	 * 	Si seleccionas SI sales del sistema
-	 * 	Si seleccinas NO, te mantienes en el.
+	 * Si se pulsa salir, salta un confirmdialog. Si seleccionas SI sales del
+	 * sistema Si seleccinas NO, te mantienes en el.
 	 * 
 	 * @param evt
 	 */
@@ -178,9 +203,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 	}
 
 	/**
-	 * Si se pulsa la X, salta un confirmdialog.
-	 * 	Si seleccionas SI sales del sistema
-	 * 	Si seleccinas NO, te mantienes en el.
+	 * Si se pulsa la X, salta un confirmdialog. Si seleccionas SI sales del
+	 * sistema Si seleccinas NO, te mantienes en el.
 	 * 
 	 * @param evt
 	 */
@@ -227,7 +251,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(MenuPrincipal.class.getName())
 					.log(java.util.logging.Level.SEVERE, null, ex);
 		}
-		
+
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new MenuPrincipal().setVisible(true);

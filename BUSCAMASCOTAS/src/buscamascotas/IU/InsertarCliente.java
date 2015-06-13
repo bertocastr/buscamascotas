@@ -440,9 +440,10 @@ public class InsertarCliente extends javax.swing.JFrame {
 	}
 
 	/**
-	 * Al seleccionar guardar, nos muestra un mensaje de confirmación.
-	 * 	Si aceptamos nos lo almacena en la base de datos
-	 * 	Si no aceptamos, nos volvemos a la pantalla de insertar.
+	 * Al seleccionar guardar, nos muestra un mensaje de confirmación. Si
+	 * aceptamos nos lo almacena en la base de datos Si no aceptamos, nos
+	 * volvemos a la pantalla de insertar.
+	 * 
 	 * @param evt
 	 */
 	private void insertActionPerformed(java.awt.event.ActionEvent evt) {
@@ -481,8 +482,8 @@ public class InsertarCliente extends javax.swing.JFrame {
 	 * 
 	 * @param evt
 	 */
-	private void animalButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {
-		System.out.println(getDNI()+ "este es el dni del cliente insertar cliente");
+	private void animalButtonClienteActionPerformed(
+			java.awt.event.ActionEvent evt) {
 		InsertarAnimal.main(getDNI());
 		setVisible(false);
 	}
@@ -498,9 +499,8 @@ public class InsertarCliente extends javax.swing.JFrame {
 	}
 
 	/**
-	 * Si se pulsa salir, salta un confirmdialog.
-	 * 	Si seleccionas SI sales del sistema
-	 * 	Si seleccinas NO, te mantienes en el.
+	 * Si se pulsa salir, salta un confirmdialog. Si seleccionas SI sales del
+	 * sistema Si seleccinas NO, te mantienes en el.
 	 * 
 	 * @param evt
 	 */
@@ -516,9 +516,8 @@ public class InsertarCliente extends javax.swing.JFrame {
 	}
 
 	/**
-	 * Si se pulsa la X, salta un confirmdialog.
-	 * 	Si seleccionas SI sales del sistema
-	 * 	Si seleccinas NO, te mantienes en el.
+	 * Si se pulsa la X, salta un confirmdialog. Si seleccionas SI sales del
+	 * sistema Si seleccinas NO, te mantienes en el.
 	 * 
 	 * @param evt
 	 */
@@ -538,7 +537,7 @@ public class InsertarCliente extends javax.swing.JFrame {
 			}
 		});
 	}
-	
+
 	/**
 	 * Obtenemos los datos de los text y creamos la sentencia sql.
 	 */
@@ -607,7 +606,7 @@ public class InsertarCliente extends javax.swing.JFrame {
 		});
 	}
 
-	//Declaración de variables
+	// Declaración de variables
 	private javax.swing.JButton animalButtonCliente;
 	private javax.swing.JLabel apellidosLabel;
 	private javax.swing.JTextField apellidosText;

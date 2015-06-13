@@ -18,6 +18,7 @@ public class PantallaInicial extends javax.swing.JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Creates new form InsertarCliente
 	 */
@@ -125,7 +126,7 @@ public class PantallaInicial extends javax.swing.JFrame {
 
 		userLabel.setText("USUARIO");
 
-		jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 36)); 
+		jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 36));
 		jLabel1.setText("BUSCAMASCOTAS");
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
@@ -247,16 +248,18 @@ public class PantallaInicial extends javax.swing.JFrame {
 	}// GEN-LAST:event_userTextActionPerformed
 
 	/**
-	 * Registra que se pulsa ENTRAR y comprueba user y pass correctos
-	 * 	Si es correcto salta a MenuPrincipal
-	 * 	Si no es correcto salta un mensaje de error.
+	 * Registra que se pulsa ENTRAR y comprueba user y pass correctos Si es
+	 * correcto salta a MenuPrincipal Si no es correcto salta un mensaje de
+	 * error.
+	 * 
 	 * @param evt
 	 */
 	private void entrarActionPerformed(java.awt.event.ActionEvent evt) {
 		String user = userText.getText();
 		@SuppressWarnings("deprecation")
 		String pass = userPass.getText();
-		// TODO CAMBIAR por acceder a base de datos a comprobar usuario y contraseña
+		// TODO CAMBIAR por acceder a base de datos a comprobar usuario y
+		// contraseña
 		if ((user.equals("sandra")) && (pass.equals("1234"))) {
 			MenuPrincipal.main();
 			setVisible(false);
@@ -264,11 +267,10 @@ public class PantallaInicial extends javax.swing.JFrame {
 			error.setText("¡Usuario o contraseña incorrectos!");
 		}
 	}
-	
+
 	/**
-	 * Si se pulsa la X, salta un confirmdialog.
-	 * 	Si seleccionas SI sales del sistema
-	 * 	Si seleccinas NO, te mantienes en el.
+	 * Si se pulsa la X, salta un confirmdialog. Si seleccionas SI sales del
+	 * sistema Si seleccinas NO, te mantienes en el.
 	 * 
 	 * @param evt
 	 */
@@ -308,7 +310,7 @@ public class PantallaInicial extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(PantallaInicial.class.getName())
 					.log(java.util.logging.Level.SEVERE, null, ex);
 		}
-		
+
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new PantallaInicial().setVisible(true);
@@ -316,7 +318,7 @@ public class PantallaInicial extends javax.swing.JFrame {
 		});
 	}
 
-	//Declaración de variables
+	// Declaración de variables
 	private javax.swing.JButton entrar;
 	private javax.swing.JLabel error;
 	private javax.swing.JLabel jLabel1;

@@ -97,9 +97,9 @@ public class PopUpWindow extends javax.swing.JDialog {
 			}
 		});
 
-		labelPopup.setFont(new java.awt.Font("SansSerif", 1, 12)); 
-		
-		jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 36)); 
+		labelPopup.setFont(new java.awt.Font("SansSerif", 1, 12));
+
+		jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 36));
 		jLabel2.setText("BUSCAMASCOTAS");
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
@@ -173,21 +173,22 @@ public class PopUpWindow extends javax.swing.JDialog {
 		pack();
 		setLocationRelativeTo(null);
 	}
+
 	private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		doClose(RET_OK);
 	}
-	
+
 	private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		doClose(RET_CANCEL);
 	}
-	
+
 	/**
 	 * Closes the dialog
 	 */
 	private void closeDialog(java.awt.event.WindowEvent evt) {
 		doClose(RET_CANCEL);
 	}
-	
+
 	private void doClose(int retStatus) {
 		returnStatus = retStatus;
 		setVisible(false);
@@ -240,7 +241,7 @@ public class PopUpWindow extends javax.swing.JDialog {
 		});
 	}
 
-	//Declaración de variables
+	// Declaración de variables
 	private javax.swing.JButton cancelButton;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JLabel labelPopup;
