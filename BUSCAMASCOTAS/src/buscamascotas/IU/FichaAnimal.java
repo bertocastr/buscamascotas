@@ -987,7 +987,7 @@ public class FichaAnimal extends javax.swing.JFrame {
 			try {
 				numeroColumna = resultado.getMetaData().getColumnCount();
 			} catch (SQLException ex) {
-				Logger.getLogger(Buscar.class.getName()).log(Level.SEVERE,
+				Logger.getLogger(BuscarAnimal.class.getName()).log(Level.SEVERE,
 						null, ex);
 			}
 
@@ -996,7 +996,7 @@ public class FichaAnimal extends javax.swing.JFrame {
 				try {
 					objetos[i - 1] = resultado.getObject(i);
 				} catch (SQLException ex) {
-					Logger.getLogger(Buscar.class.getName()).log(Level.SEVERE,
+					Logger.getLogger(BuscarAnimal.class.getName()).log(Level.SEVERE,
 							null, ex);
 				}
 			}
@@ -1007,7 +1007,7 @@ public class FichaAnimal extends javax.swing.JFrame {
 
 			resultado.close();
 		} catch (SQLException ex) {
-			Logger.getLogger(Buscar.class.getName())
+			Logger.getLogger(BuscarAnimal.class.getName())
 					.log(Level.SEVERE, null, ex);
 		}
 

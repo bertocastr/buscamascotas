@@ -482,7 +482,8 @@ public class InsertarCliente extends javax.swing.JFrame {
 	 * @param evt
 	 */
 	private void animalButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {
-		InsertarAnimal.main();
+		System.out.println(getDNI()+ "este es el dni del cliente insertar cliente");
+		InsertarAnimal.main(getDNI());
 		setVisible(false);
 	}
 

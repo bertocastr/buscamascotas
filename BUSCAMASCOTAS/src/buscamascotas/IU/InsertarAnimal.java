@@ -9,6 +9,9 @@ import javax.swing.WindowConstants;
 
 import buscamascotas.sqliteconection.Operaciones.Conexion;
 import buscamascotas.sqliteconection.Operaciones.Operaciones;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  *
@@ -22,7 +25,7 @@ public class InsertarAnimal extends javax.swing.JFrame {
 	private static final long serialVersionUID = -1568477946399764726L;
 	Operaciones ins = new Operaciones();
 	Conexion con = new Conexion();
-	private String sql;
+	private String sql, dni_cliente;
 	private String ruta, especie, raza, nombre, carpeta;
 
 	public String getSql() {
@@ -36,9 +39,11 @@ public class InsertarAnimal extends javax.swing.JFrame {
 	/**
 	 * Creates new form InsertarAnimal
 	 */
-	public InsertarAnimal() {
+	public InsertarAnimal(String dni) {
 		initComponents();
 
+		this.dni_cliente = dni;
+		System.out.println(dni_cliente+ "este es el dni del cliente");
 		salir();
 
 	}
@@ -76,7 +81,6 @@ public class InsertarAnimal extends javax.swing.JFrame {
 		habitatText = new javax.swing.JTextField();
 		esterilizadoLabel1 = new javax.swing.JLabel();
 		principalButton = new javax.swing.JButton();
-		atrasButton = new javax.swing.JButton();
 		salirButton = new javax.swing.JButton();
 		jLabel2 = new javax.swing.JLabel();
 
@@ -128,13 +132,6 @@ public class InsertarAnimal extends javax.swing.JFrame {
 			}
 		});
 
-		atrasButton.setText("VOLVER ATRAS");
-		atrasButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				atrasButtonActionPerformed(evt);
-			}
-		});
-
 		salirButton.setText("SALIR");
 		salirButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,323 +144,122 @@ public class InsertarAnimal extends javax.swing.JFrame {
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
+		layout.setHorizontalGroup(
+			layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+							.addGap(41)
+							.addComponent(animalButton))
+						.addGroup(layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(jLabel2))
+						.addGroup(layout.createSequentialGroup()
+							.addGap(88)
+							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+								.addGroup(layout.createSequentialGroup()
+									.addComponent(nacimientoLabel)
+									.addGap(18)
+									.addComponent(nacimientoText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE))
+								.addGroup(layout.createSequentialGroup()
+									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+										.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+											.addComponent(fechachipLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(microchipLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(nombreLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(sexoLabel, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE))
+										.addGroup(layout.createParallelGroup(Alignment.TRAILING, false)
+											.addComponent(dietaLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(capaLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(peloLabel, Alignment.LEADING))
+										.addComponent(esterilizadoLabel1)
+										.addComponent(especieLabel)
+										.addComponent(razaLabel, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))
+									.addGap(24)
+									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+										.addComponent(razaText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(especieText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(dietaText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(habitatText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(capaText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(peloText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(sexoText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(fechaMicroText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(microchipText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addComponent(nombreText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(layout.createSequentialGroup()
+									.addComponent(esterilizadoLabel)
+									.addGap(46)
+									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+										.addComponent(esterilizadoText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+										.addGroup(layout.createSequentialGroup()
+											.addComponent(principalButton)
+											.addPreferredGap(ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+											.addComponent(salirButton)
+											.addPreferredGap(ComponentPlacement.RELATED)))))))
+					.addContainerGap(81, GroupLayout.PREFERRED_SIZE))
+		);
+		layout.setVerticalGroup(
+			layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(jLabel2)
+					.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(nombreLabel)
+						.addComponent(nombreText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(microchipLabel)
+						.addComponent(microchipText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(fechachipLabel)
+						.addComponent(fechaMicroText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(sexoLabel)
+						.addComponent(sexoText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(especieLabel)
+						.addComponent(especieText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(razaLabel)
+						.addComponent(razaText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(peloLabel)
+						.addComponent(peloText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(capaLabel)
+						.addComponent(capaText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(dietaLabel)
+						.addComponent(dietaText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(esterilizadoLabel1)
+						.addComponent(habitatText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(nacimientoText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(nacimientoLabel))
+					.addGap(9)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(esterilizadoLabel)
+						.addComponent(esterilizadoText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(57)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(animalButton)
+						.addComponent(principalButton)
+						.addComponent(salirButton))
+					.addContainerGap())
+		);
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup().addGap(41, 41, 41)
-								.addComponent(animalButton).addGap(18, 18, 18)
-								.addComponent(principalButton)
-								.addGap(26, 26, 26).addComponent(atrasButton)
-								.addGap(38, 38, 38).addComponent(salirButton)
-								.addGap(0, 62, Short.MAX_VALUE))
-				.addGroup(
-						layout.createSequentialGroup()
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addContainerGap()
-																.addComponent(
-																		jLabel2))
-												.addGroup(
-														layout.createSequentialGroup()
-																.addGap(88, 88,
-																		88)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.TRAILING)
-																				.addGroup(
-																						javax.swing.GroupLayout.Alignment.LEADING,
-																						layout.createSequentialGroup()
-																								.addComponent(
-																										nacimientoLabel)
-																								.addGap(18,
-																										18,
-																										18)
-																								.addComponent(
-																										nacimientoText,
-																										javax.swing.GroupLayout.PREFERRED_SIZE,
-																										242,
-																										javax.swing.GroupLayout.PREFERRED_SIZE))
-																				.addGroup(
-																						javax.swing.GroupLayout.Alignment.LEADING,
-																						layout.createSequentialGroup()
-																								.addComponent(
-																										esterilizadoLabel)
-																								.addGap(46,
-																										46,
-																										46)
-																								.addComponent(
-																										esterilizadoText,
-																										javax.swing.GroupLayout.PREFERRED_SIZE,
-																										242,
-																										javax.swing.GroupLayout.PREFERRED_SIZE))
-																				.addGroup(
-																						javax.swing.GroupLayout.Alignment.LEADING,
-																						layout.createSequentialGroup()
-																								.addGroup(
-																										layout.createParallelGroup(
-																												javax.swing.GroupLayout.Alignment.LEADING)
-																												.addGroup(
-																														layout.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																false)
-																																.addComponent(
-																																		fechachipLabel,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		Short.MAX_VALUE)
-																																.addComponent(
-																																		microchipLabel,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		Short.MAX_VALUE)
-																																.addComponent(
-																																		nombreLabel,
-																																		javax.swing.GroupLayout.Alignment.TRAILING,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		Short.MAX_VALUE)
-																																.addComponent(
-																																		sexoLabel,
-																																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																																		94,
-																																		javax.swing.GroupLayout.PREFERRED_SIZE))
-																												.addGroup(
-																														layout.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.TRAILING,
-																																false)
-																																.addComponent(
-																																		dietaLabel,
-																																		javax.swing.GroupLayout.Alignment.LEADING,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		Short.MAX_VALUE)
-																																.addComponent(
-																																		capaLabel,
-																																		javax.swing.GroupLayout.Alignment.LEADING,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																																		Short.MAX_VALUE)
-																																.addComponent(
-																																		peloLabel,
-																																		javax.swing.GroupLayout.Alignment.LEADING))
-																												.addComponent(
-																														esterilizadoLabel1)
-																												.addComponent(
-																														especieLabel)
-																												.addComponent(
-																														razaLabel,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														82,
-																														javax.swing.GroupLayout.PREFERRED_SIZE))
-																								.addGap(24,
-																										24,
-																										24)
-																								.addGroup(
-																										layout.createParallelGroup(
-																												javax.swing.GroupLayout.Alignment.LEADING)
-																												.addComponent(
-																														razaText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														especieText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														dietaText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														habitatText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														capaText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														peloText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														sexoText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														fechaMicroText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														microchipText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE)
-																												.addComponent(
-																														nombreText,
-																														javax.swing.GroupLayout.PREFERRED_SIZE,
-																														242,
-																														javax.swing.GroupLayout.PREFERRED_SIZE))))))
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(jLabel2)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-										22, Short.MAX_VALUE)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(nombreLabel)
-												.addComponent(
-														nombreText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(microchipLabel)
-												.addComponent(
-														microchipText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(fechachipLabel)
-												.addComponent(
-														fechaMicroText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(sexoLabel)
-												.addComponent(
-														sexoText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(especieLabel)
-												.addComponent(
-														especieText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(11, 11, 11)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(razaLabel)
-												.addComponent(
-														razaText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(peloLabel)
-												.addComponent(
-														peloText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(capaLabel)
-												.addComponent(
-														capaText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(dietaLabel)
-												.addComponent(
-														dietaText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(
-														esterilizadoLabel1)
-												.addComponent(
-														habitatText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(11, 11, 11)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(
-														nacimientoText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(nacimientoLabel))
-								.addGap(9, 9, 9)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(esterilizadoLabel)
-												.addComponent(
-														esterilizadoText,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(57, 57, 57)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(animalButton)
-												.addComponent(principalButton)
-												.addComponent(atrasButton)
-												.addComponent(salirButton))
-								.addContainerGap()));
 
 		pack();
 		setLocationRelativeTo(null);
@@ -480,7 +276,6 @@ public class InsertarAnimal extends javax.swing.JFrame {
 		hola.setVisible(true);
 		if (hola.getReturnStatus() == 1) {
 			sacarString();
-			System.out.println(getSql());
 			ins.insertar(getSql());
 			crearCarpetas();
 
@@ -490,11 +285,6 @@ public class InsertarAnimal extends javax.swing.JFrame {
 
 	private void principalButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		MenuPrincipal.main();
-		this.setVisible(false);
-	}
-
-	private void atrasButtonActionPerformed(java.awt.event.ActionEvent evt) {
-		InsertarCliente.main();
 		this.setVisible(false);
 	}
 
@@ -528,7 +318,8 @@ public class InsertarAnimal extends javax.swing.JFrame {
 	 * @param args
 	 *            the command line arguments
 	 */
-	public static void main() {
+	public static void main(String dni) {
+		System.out.println(dni+ "este es el dni del cliente main");
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
 					.getInstalledLookAndFeels()) {
@@ -553,14 +344,13 @@ public class InsertarAnimal extends javax.swing.JFrame {
 
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new InsertarAnimal().setVisible(true);
+				new InsertarAnimal(dni).setVisible(true);
 			}
 		});
 	}
 
 	//Declaración de variables
 	private javax.swing.JButton animalButton;
-	private javax.swing.JButton atrasButton;
 	private javax.swing.JLabel capaLabel;
 	private javax.swing.JTextField capaText;
 	private javax.swing.JLabel dietaLabel;
@@ -646,7 +436,7 @@ public class InsertarAnimal extends javax.swing.JFrame {
 				+ esterilizado
 				+ "',"
 				+ "'"
-				+ InsertarCliente.getDNI()
+				+ this.dni_cliente
 				+ "', '"
 				+ carpeta
 				+ "')");

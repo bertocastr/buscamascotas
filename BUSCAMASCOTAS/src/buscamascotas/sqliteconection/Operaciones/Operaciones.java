@@ -218,6 +218,54 @@ public class Operaciones extends Conexion {
 
 		return tableModel;
 	}
+	
+	public DefaultTableModel consultaSoloCliente(String sql,
+			DefaultTableModel tableModel) {
+		listaDNI = new ArrayList<String>();
+		ResultSet resultadoCliente = null;
+
+		try {
+			resultadoCliente = consultar(sql);
+
+			if (resultadoCliente != null) {
+				while (resultadoCliente.next()) {
+					String propietario = resultadoCliente.getString(1);
+					propietario = propietario + " "
+							+ resultadoCliente.getString(2);
+
+					String dni = resultadoCliente.getString(3);
+					setListaDNI(dni);
+
+					
+							Object[] objetos = new Object[2];
+							
+
+							objetos[0] = propietario;
+							objetos[1] = dni;
+
+							tableModel.addRow(objetos);
+						}
+					}
+				
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				consulta.close();
+				conexion.close();
+				if (resultadoCliente != null) {
+					resultadoCliente.close();
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return tableModel;
+	}
 
 	/**
 	 * Se realiza una consulta normal, sin realizar ninguna operación en concreto.

@@ -17,6 +17,12 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import buscamascotas.sqliteconection.Operaciones.Operaciones;
+import javax.swing.JButton;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -32,7 +38,7 @@ public class FichaCliente extends javax.swing.JFrame {
 	Operaciones op = new Operaciones();
 	String dni, nombre, apellidos, direccion, localidad, cp, municipio,
 			telefono1, telefono2;
-	Buscar busco = new Buscar();
+	BuscarAnimal busco = new BuscarAnimal();
 	String sql;
 
 	public String getSQL() {
@@ -230,352 +236,148 @@ public class FichaCliente extends javax.swing.JFrame {
 
 		jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); 
 		jLabel4.setText("CLIENTE");
+		
+		anyadirAnimalButton = new JButton("A\u00D1ADIR ANIMAL");
+		anyadirAnimalButton.addActionListener(new ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				anyadirAnimalButtonActionPerformed(evt);
+			}
+		});
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
+		layout.setHorizontalGroup(
+			layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+					.addGap(10)
+					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(eliminarButton)
+						.addGroup(layout.createParallelGroup(Alignment.LEADING)
+							.addGroup(layout.createSequentialGroup()
+								.addGap(91)
+								.addGroup(layout.createParallelGroup(Alignment.LEADING)
+									.addComponent(actualizarButton)
+									.addGroup(layout.createSequentialGroup()
+										.addGroup(layout.createParallelGroup(Alignment.LEADING)
+											.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+												.addComponent(apellidosLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(nombreLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(dniLabel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(direccionLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(localidadLabel, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))
+											.addGroup(layout.createParallelGroup(Alignment.TRAILING, false)
+												.addComponent(telefono2Label, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(telefonoLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(municipioLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(cpLabel, Alignment.LEADING)))
+										.addGap(69)
+										.addGroup(layout.createParallelGroup(Alignment.LEADING)
+											.addComponent(jLabel4)
+											.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+												.addComponent(dniText)
+												.addComponent(nombreText)
+												.addComponent(apellidosText)
+												.addComponent(direccionText)
+												.addComponent(localidadText, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+												.addComponent(cpText)
+												.addComponent(municipioText)
+												.addComponent(telefonoText)
+												.addComponent(telefono2Text, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE))))))
+							.addGroup(layout.createSequentialGroup()
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(jLabel2))))
+					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(layout.createSequentialGroup()
+							.addGap(36)
+							.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(layout.createSequentialGroup()
+									.addComponent(animalButton)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(anyadirAnimalButton)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(menuButton)
+									.addGap(18)
+									.addComponent(salirButton))
+								.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addContainerGap(36, Short.MAX_VALUE))
+						.addGroup(layout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+							.addComponent(jLabel3)
+							.addGap(250))))
+		);
+		layout.setVerticalGroup(
+			layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(jLabel2)
+							.addPreferredGap(ComponentPlacement.RELATED, 62, Short.MAX_VALUE))
+						.addGroup(layout.createSequentialGroup()
+							.addContainerGap(81, Short.MAX_VALUE)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(jLabel3)
+								.addComponent(jLabel4))
+							.addGap(18)))
+					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(dniLabel)
+								.addComponent(dniText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(nombreLabel)
+								.addComponent(nombreText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(apellidosLabel)
+								.addComponent(apellidosText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(direccionLabel)
+								.addComponent(direccionText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(localidadLabel)
+								.addComponent(localidadText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(cpLabel)
+								.addComponent(cpText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(municipioLabel)
+								.addComponent(municipioText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(telefonoLabel)
+								.addComponent(telefonoText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(telefono2Label)
+								.addComponent(telefono2Text, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(actualizarButton)
+								.addComponent(eliminarButton)
+								.addComponent(menuButton)
+								.addComponent(salirButton)
+								.addComponent(animalButton)
+								.addComponent(anyadirAnimalButton)))
+						.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 268, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.TRAILING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addGap(47, 47,
-																		47)
-																.addComponent(
-																		eliminarButton))
-												.addGroup(
-														layout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-																.addGroup(
-																		layout.createSequentialGroup()
-																				.addGap(91,
-																						91,
-																						91)
-																				.addGroup(
-																						layout.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																								.addComponent(
-																										actualizarButton)
-																								.addGroup(
-																										layout.createSequentialGroup()
-																												.addGroup(
-																														layout.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING)
-																																.addGroup(
-																																		layout.createParallelGroup(
-																																				javax.swing.GroupLayout.Alignment.LEADING,
-																																				false)
-																																				.addComponent(
-																																						apellidosLabel,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						Short.MAX_VALUE)
-																																				.addComponent(
-																																						nombreLabel,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						Short.MAX_VALUE)
-																																				.addComponent(
-																																						dniLabel,
-																																						javax.swing.GroupLayout.Alignment.TRAILING,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						Short.MAX_VALUE)
-																																				.addComponent(
-																																						direccionLabel,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						Short.MAX_VALUE)
-																																				.addComponent(
-																																						localidadLabel,
-																																						javax.swing.GroupLayout.Alignment.TRAILING,
-																																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																																						82,
-																																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																																.addGroup(
-																																		layout.createParallelGroup(
-																																				javax.swing.GroupLayout.Alignment.TRAILING,
-																																				false)
-																																				.addComponent(
-																																						telefono2Label,
-																																						javax.swing.GroupLayout.Alignment.LEADING,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						Short.MAX_VALUE)
-																																				.addComponent(
-																																						telefonoLabel,
-																																						javax.swing.GroupLayout.Alignment.LEADING,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						Short.MAX_VALUE)
-																																				.addComponent(
-																																						municipioLabel,
-																																						javax.swing.GroupLayout.Alignment.LEADING,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																																						Short.MAX_VALUE)
-																																				.addComponent(
-																																						cpLabel,
-																																						javax.swing.GroupLayout.Alignment.LEADING)))
-																												.addGap(69,
-																														69,
-																														69)
-																												.addGroup(
-																														layout.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING)
-																																.addComponent(
-																																		jLabel4)
-																																.addGroup(
-																																		layout.createParallelGroup(
-																																				javax.swing.GroupLayout.Alignment.LEADING,
-																																				false)
-																																				.addComponent(
-																																						dniText)
-																																				.addComponent(
-																																						nombreText)
-																																				.addComponent(
-																																						apellidosText)
-																																				.addComponent(
-																																						direccionText)
-																																				.addComponent(
-																																						localidadText,
-																																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																																						242,
-																																						javax.swing.GroupLayout.PREFERRED_SIZE)
-																																				.addComponent(
-																																						cpText)
-																																				.addComponent(
-																																						municipioText)
-																																				.addComponent(
-																																						telefonoText)
-																																				.addComponent(
-																																						telefono2Text,
-																																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																																						242,
-																																						javax.swing.GroupLayout.PREFERRED_SIZE))))))
-																.addGroup(
-																		layout.createSequentialGroup()
-																				.addContainerGap()
-																				.addComponent(
-																						jLabel2))))
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addGap(36, 36,
-																		36)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.LEADING,
-																				false)
-																				.addGroup(
-																						layout.createSequentialGroup()
-																								.addComponent(
-																										animalButton)
-																								.addPreferredGap(
-																										javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																										javax.swing.GroupLayout.DEFAULT_SIZE,
-																										Short.MAX_VALUE)
-																								.addComponent(
-																										menuButton)
-																								.addGap(18,
-																										18,
-																										18)
-																								.addComponent(
-																										salirButton))
-																				.addComponent(
-																						jScrollPane1,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addContainerGap(
-																		36,
-																		Short.MAX_VALUE))
-												.addGroup(
-														javax.swing.GroupLayout.Alignment.TRAILING,
-														layout.createSequentialGroup()
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		Short.MAX_VALUE)
-																.addComponent(
-																		jLabel3)
-																.addGap(250,
-																		250,
-																		250)))));
-		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addContainerGap()
-																.addComponent(
-																		jLabel2)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																		62,
-																		Short.MAX_VALUE))
-												.addGroup(
-														javax.swing.GroupLayout.Alignment.TRAILING,
-														layout.createSequentialGroup()
-																.addContainerGap(
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		Short.MAX_VALUE)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						jLabel3)
-																				.addComponent(
-																						jLabel4))
-																.addGap(18, 18,
-																		18)))
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						dniLabel)
-																				.addComponent(
-																						dniText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						nombreLabel)
-																				.addComponent(
-																						nombreText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						apellidosLabel)
-																				.addComponent(
-																						apellidosText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						direccionLabel)
-																				.addComponent(
-																						direccionText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						localidadLabel)
-																				.addComponent(
-																						localidadText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						cpLabel)
-																				.addComponent(
-																						cpText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						municipioLabel)
-																				.addComponent(
-																						municipioText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						telefonoLabel)
-																				.addComponent(
-																						telefonoText,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						telefono2Label)
-																				.addComponent(
-																						telefono2Text,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.BASELINE)
-																				.addComponent(
-																						actualizarButton)
-																				.addComponent(
-																						eliminarButton)
-																				.addComponent(
-																						menuButton)
-																				.addComponent(
-																						salirButton)
-																				.addComponent(
-																						animalButton)))
-												.addComponent(
-														jScrollPane1,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														268,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addContainerGap()));
 
 		pack();
 		setLocationRelativeTo(null);
 	}
 	
+	protected void anyadirAnimalButtonActionPerformed(ActionEvent evt) {
+		InsertarAnimal.main(dniText.getText());
+		this.setVisible(false);		
+	}
+
 	private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		
 		PopUpWindow hola = new PopUpWindow(this, rootPaneCheckingEnabled);
@@ -810,5 +612,6 @@ public class FichaCliente extends javax.swing.JFrame {
 	private javax.swing.JTextField telefono2Text;
 	private javax.swing.JLabel telefonoLabel;
 	private javax.swing.JTextField telefonoText;
+	private JButton anyadirAnimalButton;
 	
 }
