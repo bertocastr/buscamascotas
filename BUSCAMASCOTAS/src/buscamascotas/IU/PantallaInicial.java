@@ -245,7 +245,7 @@ public class PantallaInicial extends javax.swing.JFrame {
 
 	// TODO CREO QUE ESTO SOBRA
 	private void userTextActionPerformed(java.awt.event.ActionEvent evt) {
-	}// GEN-LAST:event_userTextActionPerformed
+	}
 
 	/**
 	 * Registra que se pulsa ENTRAR y comprueba user y pass correctos Si es
@@ -258,9 +258,8 @@ public class PantallaInicial extends javax.swing.JFrame {
 		String user = userText.getText();
 		@SuppressWarnings("deprecation")
 		String pass = userPass.getText();
-		// TODO CAMBIAR por acceder a base de datos a comprobar usuario y
-		// contraseña
-		if ((user.equals("sandra")) && (pass.equals("1234"))) {
+
+		if (comprobarUsuario(user, pass)) {
 			MenuPrincipal.main();
 			setVisible(false);
 		} else {
@@ -316,6 +315,16 @@ public class PantallaInicial extends javax.swing.JFrame {
 				new PantallaInicial().setVisible(true);
 			}
 		});
+	}
+
+	public boolean comprobarUsuario(String userParam, String passParam) {
+		String user = userParam;
+		String pass = passParam;
+		if ((user.equals("sandra")) && (pass.equals("1234"))) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	// Declaración de variables
